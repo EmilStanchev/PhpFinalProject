@@ -22,6 +22,7 @@
 <main class="container">
     @yield('content')
 </main>
+@include("layouts.partials.footer")
 @stack('modals')
 
 @livewireScripts
