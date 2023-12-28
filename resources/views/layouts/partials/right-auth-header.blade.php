@@ -2,7 +2,7 @@
     <li class="nav-item dropdown" >
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <button class="rounded-circle nav-link " data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="rounded-circle" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                <img class="rounded-circle w" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="width: 64px;height: 64px"/>
             </button>
         @else
             <span class="inline-flex rounded-md">

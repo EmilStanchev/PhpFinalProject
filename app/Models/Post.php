@@ -9,4 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    public function scopeFeatured($query)
+    {
+        $query->where('featured',true);
+    }
 }
