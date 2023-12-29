@@ -1,12 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow-lg">
     <div class="container">
-        <div class="top-menu ml-5">
-            <x-nav-link class="flex space-x-2 text-white no-underline mr-5 text-xl items-center hover:text-yellow-900 text-sm text-yellow-500"
+        <div class="top-menu ml-10">
+            <x-nav-link class="flex space-x-2 no-underline mr-5 text-xl items-center "
                         href="{{route('/')}}" :active="request()->routeIs('/')">
                 Home
             </x-nav-link>
-            <x-nav-link class="flex space-x-2 text-white no-underline text-xl mr-5 items-center hover:text-yellow-900 text-sm text-yellow-500"
-                        href="{{route('/')}}" :active="request()->routeIs('/blog')">
+            <x-nav-link class="flex space-x-2 no-underline text-xl mr-5 items-center"
+                        href="{{route('posts.index')}}" :active="request()->routeIs('posts.index')">
                 Blog
             </x-nav-link>
         </div>

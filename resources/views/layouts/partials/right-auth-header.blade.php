@@ -19,13 +19,13 @@
             <li class="dropdown-item"><x-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-nav-link></li>
-            <li>
+            <li class="dropdown-item">
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-                    <x-dropdown-link href="{{ route('logout') }}"
+                    <x-nav-link class="" href="{{ route('logout') }}"
                                      @click.prevent="$root.submit();">
                         {{ __('Log Out') }}
-                    </x-dropdown-link>
+                    </x-nav-link>
                 </form>
             </li>
         </ul>
