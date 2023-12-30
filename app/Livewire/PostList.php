@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Post;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -15,6 +16,9 @@ class PostList extends Component
 
     #[Url()]
     public $sort ='desc';
+
+    #[Url()]
+    public $category ='';
     public $searchValue = '';
     public function setSort($sort)
     {
@@ -34,10 +38,13 @@ class PostList extends Component
     public function posts()
     {
         $posts = Post::orderBy('created_at', $this->sort)
+            ->when(Category::where('slug',$this->category)->first(),function ($subQuery){
+                $subQuery->withCategory($this->category);
+            })
             ->where(function ($query) {
                 $query->where('title', 'like', "%{$this->searchValue}%")
-                    ->orWhereHas('author', function ($subquery) {
-                        $subquery->where('first_name', 'like', "%{$this->searchValue}%")
+                    ->orWhereHas('author', function ($query) {
+                        $query->where('first_name', 'like', "%{$this->searchValue}%")
                             ->orWhere('last_name','like',"%{$this->searchValue}%");
                     });
             });

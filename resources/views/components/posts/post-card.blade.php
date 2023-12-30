@@ -3,7 +3,7 @@
     <a href="http://127.0.0.1:8000/blog/laravel-34">
         <div class="">
             <img class="w-full h-64 rounded-xl"
-                 src="{{$post->image}}" alt="{{$post->title}}">
+                 src="{{$post->getPostImage()}}" alt="{{$post->title}}">
         </div>
     </a>
     <div class="mt-3">
