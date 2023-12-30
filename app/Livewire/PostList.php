@@ -19,6 +19,8 @@ class PostList extends Component
 
     #[Url()]
     public $category ='';
+    #[Url()]
+    public $slug ='';
     public $searchValue = '';
     public function setSort($sort)
     {
@@ -44,7 +46,9 @@ class PostList extends Component
         $posts = Post::orderBy('created_at', $this->sort)
             ->when(Category::where('slug',$this->category)->first(),function ($subQuery){
                 $subQuery->withCategory($this->category);
-            })
+            })->when(Category::where('title',$this->slug,function ($subQuery){
+                $subQuery->withTitle($this->slug);
+            }))
             ->where(function ($query) {
                 $query->where('title', 'like', "%{$this->searchValue}%")
                     ->orWhereHas('author', function ($query) {

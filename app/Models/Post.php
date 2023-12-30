@@ -55,4 +55,8 @@ class Post extends Model
             $query->where('slug', $category);
         });
     }
+/*public function scopeWithSlug($query,string $slug)
+{
+    $query->where('slug',$slug);
+}*/
 }

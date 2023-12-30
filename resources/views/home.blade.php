@@ -1,5 +1,6 @@
 <x-app-layout>
     @section('content')
+        @guest
 <div class="w-full text-center py-32">
     <h1 class="text-2xl md:text-3xl font-bold text-center lg:text-5xl text-gray-700">
         Welcome to <span class="text-yellow-500">&lt;Science&gt;</span> <span class="text-gray-900"> News</span>
@@ -9,6 +10,7 @@
        href="{{route('posts.index')}}">Start
         Reading</a>
 </div>
+        @endguest
     <div class="mb-10 ml-10">
         <div class="mb-16">
             <h2 class="mt-16 mb-5 text-3xl text-yellow-500 font-bold">Featured Posts</h2>
