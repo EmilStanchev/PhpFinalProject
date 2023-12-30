@@ -34,6 +34,10 @@ class PostList extends Component
     {
         $this->searchValue='';
     }
+    public function removeCategoryValue()
+    {
+        $this->category='';
+    }
     #[Computed()]
     public function posts()
     {

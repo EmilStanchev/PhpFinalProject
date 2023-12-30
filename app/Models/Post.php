@@ -36,7 +36,8 @@ class Post extends Model
     }
     public function getReadingTime()
     {
-        $mins= round(str_word_count($this->description) / 220);
+        $wordCount = preg_match_all('/\p{Cyrillic}+/u', $this->description, $matches);
+        $mins= round($wordCount/ 200);
         return ($mins<1)? 1 : $mins;
     }
     public function getResume()
