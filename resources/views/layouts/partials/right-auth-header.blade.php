@@ -15,10 +15,12 @@
                                 </span>
         @endif
         <ul class="dropdown-menu dropdown-menu-end">
-            <li class="dropdown-item"><x-nav-link href="{{route('profile.show')}}">Profile</x-nav-link></li>
-            <li class="dropdown-item"><x-nav-link href="{{ route('profile.user-likes') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-nav-link></li>
+            <li class="dropdown-item">
+                <x-nav-link href="{{ route('profile.user-likes') }}" :active="request()->routeIs('profile.user-likes')">
+                    Profile
+                </x-nav-link>
+            </li>
+            <li class="dropdown-item"><x-nav-link href="{{route('profile.show')}}">Settings</x-nav-link></li>
             <li class="dropdown-item">
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
