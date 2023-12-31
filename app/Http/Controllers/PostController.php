@@ -18,4 +18,9 @@ class PostController extends Controller
         })->
         take(5)->get()]);
     }
+    public function certainPost(int $postId)
+    {
+        $post = Post::find($postId);
+        return view('posts.certain-post',['post'=>$post]);
+    }
 }

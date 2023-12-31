@@ -1,6 +1,6 @@
 @props(['post'])
 <div class="">
-    <a href="{{route('posts.index',['slug'=>$post->slug])}}">
+    <a href="{{route('posts.certain-post',$post->id)}}">
         <div class="">
             <img class="w-full h-64 rounded-xl"
                  src="{{$post->getPostImage()}}" alt="{{$post->title}}">
@@ -15,6 +15,6 @@
             @endif
             <p class="text-gray-500 text-sm">{{$post->created_at}}</p>
         </div>
-        <a class="text-xl font-bold text-gray-900">{{$post->title}}</a>
+        <a href="{{route('posts.certain-post',$post->id)}}" class="text-xl font-bold text-gray-900">{{$post->title}}</a>
     </div>
 </div>

@@ -2,23 +2,19 @@
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
-            <a href="">
+            <a href="{{route('posts.certain-post',$post->id)}}">
                 <img class="mw-100 mx-auto rounded-xl"
                      src="{{$post->getPostImage()}}"
-                     alt="thumbnail">
+                     alt="thumbnail"/>
             </a>
         </div>
         <div class="col-span-8">
-            <div class="article-meta flex py-1 text-sm items-center">
-                <img class="w-10 h-10 rounded-full mr-3"
-                     src="{{$post->author->image}}"
-                     alt="avatar">
-                <span class="mr-1 text-sm">{{$post->author->first_name}}</span>
-                <span class="mr-1 text-sm">{{$post->author->last_name}}</span>
+            <div class="article-meta flex py-1 text-sm items-center gap-3 justify-between">
+                <x-posts.author-avatar :post="$post"/>
                 <span class="text-gray-500 text-xs">{{$post->created_at->diffForHumans()}}</span>
             </div>
             <h2 class="text-xl font-bold text-gray-900">
-                <a href="http://127.0.0.1:8000/blog/first%20post">
+                <a href="{{route('posts.certain-post',$post->id)}}">
                     {{$post->title}}
                 </a>
             </h2>
