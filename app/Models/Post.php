@@ -59,8 +59,10 @@ class Post extends Model
             $query->where('slug', $category);
         });
     }
-/*public function scopeWithSlug($query,string $slug)
-{
-    $query->where('slug',$slug);
-}*/
+    public function scopeLikedByUser($query,User $user){
+        $query->whereHas('likes',function ($query) use ($user){
+            $query->where('user_id',$user->id);
+        });
+
+    }
 }

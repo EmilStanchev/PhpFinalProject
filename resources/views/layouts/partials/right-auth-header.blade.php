@@ -16,7 +16,7 @@
         @endif
         <ul class="dropdown-menu dropdown-menu-end">
             <li class="dropdown-item"><x-nav-link href="{{route('profile.show')}}">Profile</x-nav-link></li>
-            <li class="dropdown-item"><x-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
+            <li class="dropdown-item"><x-nav-link href="{{ route('profile.user-likes') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-nav-link></li>
             <li class="dropdown-item">
