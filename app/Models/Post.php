@@ -30,6 +30,10 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+    public function likes()
+    {
+        return $this->belongsToMany(User::class,'post_likes')->withTimestamps();
+    }
     public function scopeFeatured($query)
     {
         $query->where('featured',true);

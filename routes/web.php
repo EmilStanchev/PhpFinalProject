@@ -16,8 +16,6 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/',HomeController::class)->name("/");
-
-Route::get('/posts',[PostController::class,'index'])->name("posts.index");
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -27,7 +25,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');*/
 });
-
+Route::middleware('auth')->group(function (){
+    Route::get('/posts',[PostController::class,'index'])->name("posts.index");
+    Route::get('/home', HomeController::class)->name('home');
+});
 Auth::routes();
 
-Route::get('/home', HomeController::class)->name('home');
