@@ -21,6 +21,13 @@
                 </x-nav-link>
             </li>
             <li class="dropdown-item"><x-nav-link href="{{route('profile.show')}}">Settings</x-nav-link></li>
+            @if(Auth::user()->isAdmin())
+                <li class="dropdown-item">
+                    <a href="{{route('filament.admin.auth.login')}}" >
+                        {{__('Admin panel')}}
+                    </a>
+                </li>
+            @endif
             <li class="dropdown-item">
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
