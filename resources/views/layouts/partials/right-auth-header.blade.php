@@ -31,8 +31,7 @@
             <li class="dropdown-item">
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-                    <x-nav-link class="" href="{{ route('logout') }}"
-                                     @click.prevent="$root.submit();">
+                    <x-nav-link class="" href="{{ route('login') }}" @click.prevent="$root.submit();" >
                         {{ __('Log Out') }}
                     </x-nav-link>
                 </form>

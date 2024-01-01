@@ -18,4 +18,8 @@ class Category extends Model
     {
         return $this->belongsToMany(Post::class,'category_post');
     }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }

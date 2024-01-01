@@ -4,7 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Faker\Provider\Text;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
@@ -56,7 +58,7 @@ class PostResource extends Resource
                     Select::make('last-name')->relationship('author','last_name')
                         ->searchable()->required(),
                     Select::make('categories')->multiple()->relationship('categories','title')
-                        ->searchable(),
+                        ->searchable()->options(Category::all()->pluck('title')->toArray()),
                 ]),
             ]);
     }
