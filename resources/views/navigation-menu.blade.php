@@ -8,7 +8,7 @@
             </x-nav-link>
             <x-nav-link class="flex space-x-2 no-underline text-xl mr-5 items-center"
                         href="{{route('posts.index')}}" :active="request()->routeIs('posts.index')">
-                Blog
+                Posts
             </x-nav-link>
         </div>
         <div class="" id="navbarSupportedContent">

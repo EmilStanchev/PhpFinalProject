@@ -1,3 +1,5 @@
+@section('title', 'Posts')
+
 <x-app-layout>
     @section('content')
         <div class="w-full grid grid-cols-4 gap-10">

@@ -1,3 +1,4 @@
+@section('title', 'Home')
 <x-app-layout>
     @section('content')
         @guest

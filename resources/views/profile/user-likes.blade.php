@@ -1,3 +1,4 @@
+@section('title', 'User likes')
 <x-app-layout>
     @section('content')
         <div class="mb-10 ml-10">
