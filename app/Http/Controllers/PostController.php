@@ -16,7 +16,8 @@ class PostController extends Controller
             whereHas('posts',function ($query){
 
         })->
-        take(5)->get()]);
+        take(5)->get(),'popularPost'=>Post::withCount('likes')->orderByDesc('likes_count')->first()
+        ]);
     }
     public function certainPost(int $postId)
     {

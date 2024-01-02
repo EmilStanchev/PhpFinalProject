@@ -12,6 +12,7 @@
                 <div class="text-xl">
                 </div>
                 @include('posts.partials.categories-box')
+                @include('posts.partials.popular-post')
             </div>
         </div>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
 class HomeController extends Controller
@@ -29,6 +31,10 @@ class HomeController extends Controller
 
     public function aboutUs(Request $request)
     {
-        return view('about-us');
+        return view('about-us',[
+            'posts'=>Post::all()->count(),
+            'users'=>User::all()->count(),
+            'categories'=>Category::all()->count(),
+            ]);
     }
 }
