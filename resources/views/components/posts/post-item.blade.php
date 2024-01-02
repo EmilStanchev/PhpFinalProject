@@ -25,7 +25,7 @@
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex gap-x-2">
                     @foreach($post->categories as $category)
-                        <x-badge textColor="{{$category->text_color}}" bgColor="{{$category->bg_color}}">
+                        <x-badge wire:key="{{$category->id}}}" textColor="{{$category->text_color}}" bgColor="{{$category->bg_color}}">
                             {{$category->title}}
                         </x-badge>
                     @endforeach
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div>
-                   <livewire:like-button key="{{$post->id}}" :post="$post"/>
+                   <livewire:like-button :id="'like-' . $post->id" :key="$post->id . now()" :post="$post"/>
                 </div>
             </div>
         </div>

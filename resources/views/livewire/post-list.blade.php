@@ -4,7 +4,7 @@
             @if($searchValue)
                 <div class="flex-1 justify-between align-content-center" style="text-align: center">
                     Searching {{$searchValue}}
-                   <span> <button wire:click="removeValue" class="btn hover:border-yellow-500 hover:text-yellow-500 border-gray-950" >X</button></span>
+                   <span> <button wire:click="removeValue()" class="btn hover:border-yellow-500 hover:text-yellow-500 border-gray-950" >X</button></span>
                 </div>
             @endif
         </div>
@@ -25,7 +25,7 @@
     </div>
     <div class="py-4">
         @foreach($this->posts as $post)
-            <x-posts.post-item :post="$post"/>
+            <x-posts.post-item wire:key="{{$post->id}}" :post="$post"/>
         @endforeach
     </div>
     <div class="my-3">

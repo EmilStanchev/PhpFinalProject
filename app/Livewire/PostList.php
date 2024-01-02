@@ -22,6 +22,7 @@ class PostList extends Component
     #[Url()]
     public $slug ='';
     public $searchValue = '';
+    //public $authorValue ='';
     public function setSort($sort)
     {
         $this->sort=($sort==='desc'? 'desc': 'asc');
@@ -30,16 +31,27 @@ class PostList extends Component
     public function updateSearchValue($searchValue)
     {
         $this->searchValue=$searchValue;
+        $this->resetPage();
 
     }
+  /*  #[On('authorValue')]
+    public function updateAuthorValue($authorValue){
+        $this->authorValue=$authorValue;
+    }*/
     public function removeValue()
     {
-        $this->searchValue='';
+        $this->reset('searchValue');
+        $this->resetPage();
     }
     public function removeCategoryValue()
     {
         $this->category='';
+        $this->resetPage();
     }
+  /*  public function removeAuthorValue()
+    {
+        $this->authorValue='';
+    }*/
     #[Computed()]
     public function posts()
     {

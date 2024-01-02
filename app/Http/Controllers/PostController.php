@@ -14,7 +14,6 @@ class PostController extends Controller
     {
         return view('posts.index',['posts'=>Post::take(5)->get(),'categories' => Category::
             whereHas('posts',function ($query){
-
         })->
         take(5)->get(),'popularPost'=>Post::withCount('likes')->orderByDesc('likes_count')->first()
         ]);
