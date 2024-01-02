@@ -21,9 +21,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function __invoke(Request $request)
+    public function index(Request $request)
     {
-        return view('home',['featuredPosts'=> Post::featured()->latest('created_at')->take(3)->get(),
-            'latestPosts'=>Post::latest()->take(9)->get()]);
+        return view('home', ['featuredPosts' => Post::featured()->latest('created_at')->take(3)->get(),
+            'latestPosts' => Post::latest()->take(9)->get()]);
+    }
+
+    public function aboutUs(Request $request)
+    {
+        return view('about-us');
     }
 }

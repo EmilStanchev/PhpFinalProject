@@ -15,7 +15,6 @@ use App\Http\Controllers\Auth\LikeController;
 | routes are loaded by
 */
 
-Route::get('/',HomeController::class)->name("/");
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -26,11 +25,12 @@ Route::middleware([
     })->name('dashboard');*/
 });
 Route::middleware('auth')->group(function (){
-    Route::get('/home', HomeController::class)->name('home');
+    Route::get('/',[HomeController::class,'index'])->name("/");
+    //Route::get('/home', [HomeController::class,'index'])->name('home');
     Route::get('/posts',[PostController::class,'index'])->name("posts.index");
     Route::get('/posts/{postId:slug}',[PostController::class,'certainPost'])->name("posts.certain-post");
     Route::get('/profile/userLikes',[LikeController::class,'index'])->name("profile.user-likes");
 
 });
 \Illuminate\Support\Facades\Auth::routes();
-
+Route::get('/aboutUs',[HomeController::class,'aboutUs'])->name('about-us');
