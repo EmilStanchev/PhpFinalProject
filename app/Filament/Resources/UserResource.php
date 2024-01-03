@@ -16,8 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationGroup = 'Settings';
+
+
 
     public static function form(Form $form): Form
     {
@@ -54,8 +56,12 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('role')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('role')->badge()->color(function ($state){
+                        if ($state==='Admin'){
+                            return 'success';
+                        }
+                        return 'info';
+                })->searchable(),
             ])
             ->filters([
                 //

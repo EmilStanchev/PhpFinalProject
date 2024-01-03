@@ -31,6 +31,8 @@ class PostResource extends Resource
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Settings';
+
 
     public static function form(Form $form): Form
     {
@@ -74,6 +76,8 @@ class PostResource extends Resource
                 TextColumn::make('author.last_name')->sortable()->searchable()->label('Author last name'),
                 CheckboxColumn::make('featured'),
                 TextColumn::make('created_at')->date()->sortable()->searchable(),
+                TextColumn::make('categories.title')->sortable()->searchable()->toggleable(),
+
 
             ])
             ->filters([
