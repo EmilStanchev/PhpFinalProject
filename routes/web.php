@@ -30,7 +30,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/posts',[PostController::class,'index'])->name("posts.index");
     Route::get('/posts/{postId:slug}',[PostController::class,'certainPost'])->name("posts.certain-post");
     Route::get('/profile/userLikes',[LikeController::class,'index'])->name("profile.user-likes");
-
 });
 \Illuminate\Support\Facades\Auth::routes();
 Route::get('/aboutUs',[HomeController::class,'aboutUs'])->name('about-us');
