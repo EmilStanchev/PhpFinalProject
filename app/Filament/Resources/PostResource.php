@@ -39,13 +39,7 @@ class PostResource extends Resource
         return $form
             ->schema([
                Section::make('Main columns')->schema([
-                    TextInput::make('title')->required()->minLength(5)->maxLength(200)->live()
-                        ->afterStateUpdated(function (string $operation,$state,Forms\Set $set ){
-                            if ($operation === 'edit') {
-                                return;
-                            }
-                            $set('slug',Str::slug($state));
-                        }),
+                    TextInput::make('title')->required()->minLength(5)->maxLength(200),
                     TextInput::make('slug')->required()->unique(ignoreRecord:true)->minLength(3)->maxLength(150),
                    RichEditor::make('description')->required()->columnSpanFull(),
 

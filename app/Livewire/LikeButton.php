@@ -30,7 +30,6 @@ class LikeButton extends Component
     }
     public function render()
     {
-        //dd($this->post->id);
         return view('livewire.like-button');
     }
 }
