@@ -63,6 +63,5 @@ class Post extends Model
         $query->whereHas('likes',function ($query) use ($user){
             $query->where('user_id',$user->id);
         });
-
     }
 }

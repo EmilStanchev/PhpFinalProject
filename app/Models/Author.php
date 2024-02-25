@@ -12,7 +12,6 @@ class Author extends Model
         'first_name',
         'last_name',
         'image',
-        'description',
         'created_at'
     ];
     public function getFullNameAttribute()

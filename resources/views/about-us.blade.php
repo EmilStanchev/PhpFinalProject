@@ -4,9 +4,9 @@
     @section('content')
         <div class="w-full text-center m-0 py-16 md:py-24 lg:py-32">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-700">
-                Welcome to <span class="text-yellow-500">&lt;Science&gt;</span> <span class="text-gray-900"> News</span>
+                Добре дошли в <span class="text-yellow-500">&lt;Science&gt;</span> <span class="text-gray-900"> News</span>
             </h1>
-            <p class="text-gray-500 text-lg mt-2">Best Blog in the universe</p>
+            <p class="text-gray-500 text-lg mt-2">Най- добрият сайт за научни статии.</p>
             <a class="inline-block mt-4 px-6 py-3 text-lg text-white bg-gray-800 rounded hover:bg-gray-700 transition duration-300"
                href="{{ route('posts.index') }}">Start Reading</a>
             <div class="flex items-center justify-center space-x-4 mt-4">
